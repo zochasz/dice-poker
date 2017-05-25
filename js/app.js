@@ -7,12 +7,12 @@ window.onload = function () {
 
 document.getElementById("roll").addEventListener("click", player1RollFirstTurn);
 
-var array1 = [];
+var player1Dices = [];
 function player1RollFirstTurn(){
   for (i=1; i<6; i++){
     var number = game.rollOneDice();
     document.getElementById("dice"+i).innerHTML = number;
-    array1.push(number);
+    player1Dices.push(number);
     document.getElementById("dice"+i).disabled = false;
     document.getElementById("dice"+i).addEventListener("click", player1SaveForNextRoll);
   }
@@ -33,20 +33,28 @@ function player1RollSecondTurn(){
     if (document.getElementById("dice"+i).disabled === false){
       var number = game.rollOneDice();
       document.getElementById("dice"+i).innerHTML = number;
-      array1[i-1] = number;
+      player1Dices[i-1] = number;
     }
-    document.getElementById("roll").removeEventListener("click", player1RollSecondTurn);
-    document.getElementById("roll").addEventListener("click", player2RollFirstTurn);
   }
+  document.getElementById("roll").removeEventListener("click", player1RollSecondTurn);
+  document.getElementById("roll").addEventListener("click", player2RollFirstTurn);
+  document.getElementById("player1").style.backgroundColor = "lightgrey";
+  document.getElementById("player2").style.backgroundColor = "orange";
+  document.getElementById("dices-player1").style.backgroundColor = "lightgrey";
+  document.getElementById("dices-player2").style.backgroundColor = "orange";
+
+  player1Dices.sort(function(a, b) {
+    return a - b;
+  });
 }
 
 
-var array2 = [];
+var player2Dices = [];
 function player2RollFirstTurn(){
   for (i=6; i<11; i++){
     var number = game.rollOneDice();
     document.getElementById("dice"+i).innerHTML = number;
-    array2.push(number);
+    player2Dices.push(number);
     document.getElementById("dice"+i).disabled = false;
     document.getElementById("dice"+i).addEventListener("click", player2SaveForNextRoll);
   }
@@ -67,8 +75,24 @@ function player2RollSecondTurn(){
     if (document.getElementById("dice"+i).disabled === false){
       var number = game.rollOneDice();
       document.getElementById("dice"+i).innerHTML = number;
-      array2[i-6] = number;
+      player2Dices[i-6] = number;
     }
-    document.getElementById("roll").removeEventListener("click", player2RollSecondTurn);
   }
+  document.getElementById("roll").removeEventListener("click", player2RollSecondTurn);
+  player2Dices.sort(function(a, b) {
+    return a - b;
+  });
+
+
+var player1Ones = player1Dices.filter(function(value){return value === 1});
+var player1Twos = player1Dices.filter(function(value){return value === 2});
+var player1Trees = player1Dices.filter(function(value){return value === 3});
+var player1Fours = player1Dices.filter(function(value){return value === 4});
+var player1Fives = player1Dices.filter(function(value){return value === 5});
+
+console.log(player1Ones);
+console.log(player1Twos);
+console.log(player1Trees);
+console.log(player1Fours);
+console.log(player1Fives);
 }

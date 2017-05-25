@@ -61,8 +61,10 @@ table {
       padding: 0;
       text-align: center;
     }
-.player1,
-.player2 {
+
+
+#player1,
+#player2 {
   width: 120px;
   height: 120px;
   margin: 20px 20px;
@@ -70,18 +72,27 @@ table {
   background-color: lightgrey;
   border-radius: 5px;
 }
-.player2 {
-  float: right;
+#player1 {
+  background-color: orange;
 }
-.dices-player1, .dices-player2 {
+
+#player2 {
+  float: right;
+  background-color: lightgrey;
+}
+#dices-player1, #dices-player2 {
   width: 600px;
   height: 120px;
   margin: 20px auto;
   float: left;
-  background-color: lightgrey;
   border-radius: 5px;
 }
-.dices-player2 {
+#dices-player1 {
+  background-color: orange;
+}
+
+#dices-player2 {
+  background-color: lightgrey;
   float: right;
 }
 
@@ -96,6 +107,9 @@ button[id*="dice"]{
   font-size: 45px;
   padding-top: 10px;
 }
+button:disabled{
+  color: #fff;
+}
 .clearfix {
     clear: both;
 }
@@ -106,5 +120,8 @@ button[id*="dice"]{
   border-radius: 5px;
   padding-top: 10px;
   font-size: 24px;
-  background-color: #aaa;
+  background-color: orange;
+}
+#roll:disabled{
+  background-color: lightgrey;
 }

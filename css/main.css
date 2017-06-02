@@ -109,11 +109,13 @@ button[id*="dice"]{
 }
 button:disabled{
   color: #fff;
+  background-color: #999;
 }
 .clearfix {
     clear: both;
 }
-#roll {
+#roll, #next {
+  display: block;
   width: 300px;
   height: 45px;
   margin: 30px auto;
@@ -122,6 +124,6 @@ button:disabled{
   font-size: 24px;
   background-color: orange;
 }
-#roll:disabled{
+#roll:disabled, #next:disabled{
   background-color: lightgrey;
 }

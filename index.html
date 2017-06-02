@@ -10,10 +10,11 @@
 
 <body>
   <h1> DICE POKER </h1>
+  <h2> ROUND <span id="round">1</span></h2>
 
   <div id = "player1">
     <h2> Player 1 </h2>
-    <h2> 000 </h2>
+    <h2> <span id="js-score1">0</span> / 7 </h2>
   </div>
 
   <div id = "dices-player1">
@@ -28,7 +29,7 @@
 
   <div id = "player2">
     <h2> Player 2 </h2>
-    <h2> 000 </h2>
+    <h2> <span id="js-score2">0</span> / 7 </h2>
   </div>
 
   <div id = "dices-player2">
@@ -40,6 +41,8 @@
   </div>
   <div class="clearfix"></div>
   <button id="roll"> ROLL </button>
+  <button disabled id="next"> NEXT ROUND </button>
+
 
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

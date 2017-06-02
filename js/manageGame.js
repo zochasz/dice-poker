@@ -1,7 +1,7 @@
 function DicePoker() {
   this.diceSides = [1,2,3,4,5,6];
   this.turn = 1, /* 1 or 2 */
-  this.round = 1, /* 1 or 2 */
+  this.round = 0, /* 1 to 7 */
     this.player1 = {
       name: "Player1",
       score: 0
@@ -22,5 +22,3 @@ function DicePoker() {
     var number = this.diceSides[randomNumber];
     return number;
   };
-
-  

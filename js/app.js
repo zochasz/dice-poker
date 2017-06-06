@@ -21,11 +21,12 @@ window.onload = function () {
     function player1RollFirstTurn(){
       for (i=1; i<6; i++){
         var number = rollDice.roll();
-        document.getElementById("dice"+i).innerHTML = number;
+        document.getElementById("dice"+i).style = style = "background: url(img/"+number+".png)";
         player1Dices.push(number);
         document.getElementById("dice"+i).disabled = false;
         document.getElementById("dice"+i).addEventListener("click", player1SaveForNextRoll);
       }
+      game.turn = 2;
       return player1Dices;
     };
 
@@ -34,14 +35,14 @@ window.onload = function () {
         for (i=1; i<6; i++){
           if (target.id ==="dice"+i){document.getElementById("dice"+i).disabled = true;}
         }
-        game.turn = 2;
+
     };
 
     function player1RollSecondTurn(){
       for (i=1; i<6; i++){
         if (document.getElementById("dice"+i).disabled === false){
           var number = rollDice.roll();
-          document.getElementById("dice"+i).innerHTML = number;
+          document.getElementById("dice"+i).style = style = "background: url(img/"+number+".png)";
           player1Dices[i-1] = number;
         }
       }
@@ -59,11 +60,12 @@ window.onload = function () {
     function player2RollFirstTurn(){
       for (i=6; i<11; i++){
         var number = rollDice.roll();
-        document.getElementById("dice"+i).innerHTML = number;
+        document.getElementById("dice"+i).style = style = "background: url(img/"+number+".png)";
         player2Dices.push(number);
         document.getElementById("dice"+i).disabled = false;
         document.getElementById("dice"+i).addEventListener("click", player2SaveForNextRoll);
       }
+      game.turn = 2;
       return player2Dices;
     };
 
@@ -72,14 +74,13 @@ window.onload = function () {
         for (i=6; i<11; i++){
           if (target.id ==="dice"+i){document.getElementById("dice"+i).disabled = true;}
         }
-        game.turn = 2;
     };
 
     function player2RollSecondTurn(){
       for (i=6; i<11; i++){
         if (document.getElementById("dice"+i).disabled === false){
           var number = rollDice.roll();
-          document.getElementById("dice"+i).innerHTML = number;
+          document.getElementById("dice"+i).style = style = "background: url(img/"+number+".png)";
           player2Dices[i-6] = number;
         }
       }
@@ -189,8 +190,15 @@ window.onload = function () {
   }
 
   function ereaseNumbers(){
+    player1Dices = [];
+    player1Numbers = [];
+    player1Result = [];
+    player2Dices = [];
+    player2Numbers = [];
+    player2Result = [];
+
     for (i=1; i<11; i++){
-      document.getElementById("dice"+i).innerHTML = " ";
+      document.getElementById("dice"+i).style = style = "background: none";
       document.getElementById("dice"+i).disabled = false;
     }
     if (game.round<7) {
@@ -202,11 +210,7 @@ window.onload = function () {
     document.getElementById("round").innerHTML = round;
     document.getElementById("roll").disabled = false;
     document.getElementById("next").disabled = true;
-}
-
-  // function disableNextButton(){
-  //   document.getElementById("next").disabled = true;
-  // }
+  }
 
   function playerRoll(){
     if (game.currentPlayer === 1 && game.turn === 1) {

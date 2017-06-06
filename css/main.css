@@ -95,21 +95,30 @@ table {
   background-color: lightgrey;
   float: right;
 }
-
-button[id*="dice"]{
+/*.dice_off {
   width: 110px;
   height: 110px;
   margin: 5px;
   float: left;
   background-color: #999;
-  color: #000;
+  border-width: 1px
+  padding: 0;
+  border: 1px solid black;
   border-radius: 5px;
-  font-size: 45px;
-  padding-top: 10px;
+}*/
+button[id*="dice"]{
+  width: 110px;
+  height: 110px;
+  margin: 5px;
+  float: left;
+  background-image: none;
+  /*background-color: red;*/
+  border-width: 0px
+  padding: 0;
+  border-radius: 5px;
 }
 button:disabled{
-  color: #fff;
-  background-color: #999;
+  /*background-color: red;*/
 }
 .clearfix {
     clear: both;

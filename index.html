@@ -14,35 +14,60 @@
 
   <div id = "player1">
     <h2> Player 1 </h2>
-    <h2> <span id="js-score1">0</span> / 7 </h2>
+    <h2 id="js-credits1"> 5 </h2>
+    <button id="roll1">
+      <p> play-1 </p>
+    </button>
+    <button disabled id="stand1">
+      <p> stand-1 </p>
+    </button>
   </div>
 
-  <div id = "dices-player1">
-    <div class="dice_off"><button disabled id = "dice1"> </button></div>
-    <div class="dice_off"><button disabled id = "dice2"> </button></div>
-    <div class="dice_off"><button disabled id = "dice3"> </button></div>
-    <div class="dice_off"><button disabled id = "dice4"> </button></div>
-    <div class="dice_off"><button disabled id = "dice5"> </button></div>
-  </div>
 
-  <div class="clearfix"></div>
+  <div class = "game_board">
+    <div id = "dices-player1">
+      <button disabled id = "mini-dice1"> </button>
+      <button disabled id = "mini-dice2"> </button>
+      <button disabled id = "mini-dice3"> </button>
+      <button disabled id = "mini-dice4"> </button>
+      <button disabled id = "mini-dice5"> </button>
+    </div>
+    <div class="clearfix"></div>
+
+    <div id = "dices-player1and2">
+      <button disabled id = "dices1"> </button>
+      <button disabled id = "dices2"> </button>
+      <button disabled id = "dices3"> </button>
+      <button disabled id = "dices4"> </button>
+      <button disabled id = "dices5"> </button>
+    </div>
+    <div class="clearfix"></div>
+
+    <div id = "dices-player2">
+      <button disabled id = "mini-dice6"> </button>
+      <button disabled id = "mini-dice7"> </button>
+      <button disabled id = "mini-dice8"> </button>
+      <button disabled id = "mini-dice9"> </button>
+      <button disabled id = "mini-dice10"> </button>
+    </div>
+  </div>
 
   <div id = "player2">
     <h2> Player 2 </h2>
-    <h2> <span id="js-score2">0</span> / 7 </h2>
+    <h2 id="js-credits2"> 5 </h2>
+    <button id="roll2">
+      <p> play-2 </p>
+    </button>
+    <button disabled id="stand2">
+      <p> stand-2 </p>
+    </button>
   </div>
 
-  <div id = "dices-player2">
-    <button disabled id = "dice6"> </button>
-    <button disabled id = "dice7"> </button>
-    <button disabled id = "dice8"> </button>
-    <button disabled id = "dice9"> </button>
-    <button disabled id = "dice10"> </button>
-  </div>
   <div class="clearfix"></div>
-  <button id="roll"> ROLL </button>
-  <button disabled id="next"> NEXT ROUND </button>
 
+  <button disabled id="next">
+    <p> NEXT ROUND </p>
+  </button>
 
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

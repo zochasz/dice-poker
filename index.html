@@ -9,18 +9,16 @@
 </head>
 
 <body>
-  <h1> DICE POKER </h1>
-  <h2> ROUND <span id="round">1</span></h2>
+  <h1>POKER DICE</h1>
+  <!-- <h2> ROUND <span id="round">1</span></h2> -->
 
   <div id = "player1">
     <h2> Player 1 </h2>
-    <h2 id="js-credits1"> 5 </h2>
-    <button id="roll1">
-      <p> play-1 </p>
-    </button>
-    <button disabled id="stand1">
-      <p> stand-1 </p>
-    </button>
+    <img src="img/avatar1.png">
+    <h2 id="js-credits1"> 5 <img scr="img/coin_active.png"></h2>
+    <button type="button" id="roll1"><img src="img/glass_active.png"> </button>
+    <div class="clearfix"></div>
+    <button disabled id="stand1"><img src="img/stand_disabled.png"> </button>
   </div>
 
 
@@ -32,7 +30,6 @@
       <button disabled id = "mini-dice4"> </button>
       <button disabled id = "mini-dice5"> </button>
     </div>
-    <div class="clearfix"></div>
 
     <div id = "dices-player1and2">
       <button disabled id = "dices1"> </button>
@@ -41,7 +38,6 @@
       <button disabled id = "dices4"> </button>
       <button disabled id = "dices5"> </button>
     </div>
-    <div class="clearfix"></div>
 
     <div id = "dices-player2">
       <button disabled id = "mini-dice6"> </button>
@@ -50,24 +46,27 @@
       <button disabled id = "mini-dice9"> </button>
       <button disabled id = "mini-dice10"> </button>
     </div>
+
+    <button disabled id="next">
+      <p> NEXT </p>
+    </button>
   </div>
 
   <div id = "player2">
     <h2> Player 2 </h2>
+    <img src="img/avatar2.png">
     <h2 id="js-credits2"> 5 </h2>
     <button id="roll2">
-      <p> play-2 </p>
+      <img src="img/glass_disabled.png">
     </button>
     <button disabled id="stand2">
-      <p> stand-2 </p>
+      <img src="img/stand_disabled.png">
     </button>
   </div>
 
-  <div class="clearfix"></div>
 
-  <button disabled id="next">
-    <p> NEXT ROUND </p>
-  </button>
+
+
 
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

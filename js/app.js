@@ -14,7 +14,7 @@ window.onload = function () {
     var player2MiniDices = [];
     var player2Numbers;
     var player2Result;
-
+    document.getElementById("roll2").disabled = true;
     document.getElementById("roll1").addEventListener("click", player1Roll);
     document.getElementById("roll2").addEventListener("click", player2Roll);
 
@@ -23,9 +23,9 @@ window.onload = function () {
 
       for (i=1; i<6; i++){
         var number = rollDice.roll();
-        document.getElementById("dices"+i).style.backgroundImage = "url(img/"+number+".png)";
-        document.getElementById("dices"+i).style.backgroundSize = "100px 100px";
-        document.getElementById("dices"+i).style.backgroundColor = "#FDEE92";
+        document.getElementById("dices"+i).style.backgroundImage = "url(./img/"+number+".png)";
+        document.getElementById("dices"+i).style.backgroundSize = "62px 62px";
+        document.getElementById("dices"+i).style.backgroundColor = "#172537";
         document.getElementById("dices"+i).disabled = false;
         player1Dices.push(number);
         document.getElementById("dices"+i).addEventListener("click", whoPlays);
@@ -37,16 +37,17 @@ window.onload = function () {
       var target = event.target;
       var dicesNumber = target.id;
       var targetId = dicesNumber.substr(5, 1);
-          document.getElementById(dicesNumber).disabled = true;
-          document.getElementById(dicesNumber).style.backgroundColor = "#172537";
-          document.getElementById(dicesNumber).style.backgroundImage = "none";
-          var number = player1Dices[targetId-1];
-          player1MiniDices.push(number);
-          document.getElementById("mini-dice"+targetId).style.backgroundImage = "url(./img/"+number+".png)";
-          document.getElementById("mini-dice"+targetId).style.backgroundSize = "45px 45px";
-          player1Dices[targetId-1]=null;
+      document.getElementById(dicesNumber).disabled = true;
+      document.getElementById(dicesNumber).style.backgroundColor = "#172537";
+      document.getElementById(dicesNumber).style.backgroundImage = "none";
+      var number = player1Dices[targetId-1];
+      player1MiniDices.push(number);
+      document.getElementById("mini-dice"+targetId).style.backgroundImage = "url(./img/"+number+".png)";
+      document.getElementById("mini-dice"+targetId).style.backgroundSize = "28px 28px";
+      player1Dices[targetId-1]=null;
       game.turn = 1;
-      game.currentPlayer = 2;
+      document.getElementById("roll2").disabled = false;
+      //game.currentPlayer = 2;
     };
 
     function whoPlays() {

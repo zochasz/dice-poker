@@ -3,16 +3,16 @@ function DicePoker() {
   this.currentPlayer = 1; /*1 or 2*/
   this.turn = 1; /* 1 or 2 */
   this.currentBet = 0;
-  // this.round = 1; /* 1 to 7 */
+  this.round = 1; /* 1 to 7 */
 
   this.player1 = {
     name: "Player1",
-    credits: 5
+    credits: 6
   }
 
   this.player2 = {
     name: "Player2",
-    credits: 5
+    credits: 6
   }
   };
 

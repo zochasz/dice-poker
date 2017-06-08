@@ -129,8 +129,18 @@ h2 {
   width: 500px;
   height: 330px;
   float: left;
-  padding-top: 220px;
-  padding-left: 50px;
+  padding-top: 20px;
+}
+#winner {
+  width: 330px;
+  height: 120px;
+  margin: 40px auto 40px auto;
+  /*background-color: red;*/
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+#dices1 {
+  margin-left: 40px;
 }
 button[id*="dices"]{
   width: 68px;
@@ -163,60 +173,38 @@ button:disabled{
   display: block;
   background-color: transparent;
   border: 0px none #172537;
-}
-#roll1 img{
-  display: block;
-  width: 43px;
-  height: 63px;
-  margin: 20px auto;
-}
-#stand1 img{
-  display: block;
-  width: 42px;
-  height: 42px;
-  margin: 20px auto;
+  color: #FDEE92;
 }
 #roll1, #stand1 {
   margin: 0px auto 0 15px;
 }
-#roll1 {
+#roll1, #roll2 {
+  margin-top: 20px;
   width: 90px;
+  height: 90px;
+  background-position: 20px;
+  background-repeat: no-repeat;
+  background-image: url("../img/glass_disabled.png");
 }
-#stand1 {
+#stand1, #stand2 {
   width: 90px;
+  height: 90px;
   border-top: 3px solid #FDEE92;
-  align-content: center;
+  background-position: 20px;
+  background-repeat: no-repeat;
+  background-image: url("../img/stand_disabled.png");
 }
 #roll2, #stand2 {
   float: right;
   margin: 0px 15px 0px 0px;
 }
-#roll2 {
-  width: 90px;
-}
-#stand2 {
-  width: 90px;
-  border-top: 3px solid #FDEE92;
-  align-content: center;
-}
-#roll2 img{
-  display: block;
-  width: 43px;
-  height: 63px;
-  margin: 20px auto;
-}
-#stand2 img{
-  display: block;
-  width: 42px;
-  height: 42px;
-  margin: 20px auto;
-}
+
 #next {
   margin: 0px auto;
   font-size: 36px;
+  line-height: 50px;
 
 }
-#roll1:disabled, #roll2:disabled, #next:disabled, #stand1:disabled, #stand2:disabled{
-  background-color: #172537;
-  color: #FDEE92;
+#next:disabled{
+  color: #2A5184;
 }

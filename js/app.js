@@ -37,12 +37,14 @@ window.onload = function () {
           game.turn = 2;
           clearDices();
           rollActivate(1);
+          standActivate(1);
         }
         else if (game.turn===2){
           _initializeControls();
           game.round+=1;
           game.turn=1
           clearDices();
+          game.currentPlayer = 2;
         }
       }
       else if (game.round%2===0){
@@ -51,6 +53,7 @@ window.onload = function () {
           game.turn = 2;
           clearDices();
           rollActivate(2);
+          standActivate(2);
         }
         else if (game.currentPlayer===2 && game.turn===1){
           game.currentPlayer = 1;
@@ -60,7 +63,8 @@ window.onload = function () {
         else if (game.turn===2){
           _initializeControls();
           game.round+=1;
-          game.turn=1
+          game.turn=1;
+          game.currentPlayer = 1;
         }
       }
     }
@@ -162,7 +166,6 @@ window.onload = function () {
         }
       }
       game.currentBet += 2;
-      console.log(game.currentBet);
       game.player1.credits -=2;
       var credits1 = game.player1.credits;
       document.getElementById("js-credits1").innerHTML = credits1+" ";
@@ -172,6 +175,7 @@ window.onload = function () {
       if (game.round%2!==0){
         document.getElementById("next").disabled = true;
         rollActivate(2);
+        standActivate(2);
         game.currentPlayer=2;
       }
       else if (game.round%2===0){
@@ -213,6 +217,7 @@ window.onload = function () {
       }
       else if (game.round%2===0){
         rollActivate(1);
+        standActivate(1);
         document.getElementById("next").disabled = true;
         game.currentPlayer=1;
       }
@@ -351,10 +356,12 @@ window.onload = function () {
     }
 
     function startNewRound(){
-    document.getElementById("next").disabled = false;
-    rollDisable(1);
-    rollDisable(2);
-  }
+      document.getElementById("next").disabled = false;
+      rollDisable(1);
+      rollDisable(2);
+      standDisable(1);
+      standDisable(2);
+    }
 
     function _initializeControls(){
     player1Dices = [];
@@ -393,6 +400,24 @@ window.onload = function () {
         player2RollSecondTurn();
         }
       }
+
+    function player1Stand(){
+      game.currentBet += 1;
+      game.player1.credits -=1;
+      var credits1 = game.player1.credits;
+      document.getElementById("js-credits1").innerHTML = credits1+" ";
+      player2Wins();
+      startNewRound();
+    }
+
+    function player2Stand(){
+      game.currentBet += 1;
+      game.player2.credits -=1;
+      var credits2 = game.player2.credits;
+      document.getElementById("js-credits2").innerHTML = credits2+" ";
+      player1Wins();
+      startNewRound();
+    }
 
     function clearDices(){
     for (i=1; i<6; i++){

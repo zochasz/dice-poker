@@ -19,6 +19,8 @@ window.onload = function () {
     rollDisable(2);
     document.getElementById("roll1").addEventListener("click", player1Roll);
     document.getElementById("roll2").addEventListener("click", player2Roll);
+    document.getElementById("stand1").addEventListener("click", player1Stand);
+    document.getElementById("stand2").addEventListener("click", player2Stand);
     document.getElementById("next").addEventListener("click", _nextButtonControls);
     // document.addEventListener("keydown", _nextButtonControls)
     // var keyCode = 32;
@@ -113,7 +115,7 @@ window.onload = function () {
       document.getElementById("next").disabled = false;
     };
 
-    function whoPlays() {
+    function whoPlays(){
       if (game.currentPlayer === 1){player1SaveForNextRoll()}
       else if (game.currentPlayer === 2) {player2SaveForNextRoll()}
     };
@@ -234,20 +236,24 @@ window.onload = function () {
         player1Ones.length
       ]
 
-      if (player1Numbers===[1,1,1,1,1,0]){
-        player1Result = []
+
+      if (player1Numbers.toString()==="1,1,1,1,1,0"){
+        player1Result = [2,3,3,0,0,0];
       }
-
-      player1Result = player1Numbers.map(function(a) {
-        if (a === 1){return a = 0}
-        else {return a};
+      else if (player1Numbers.toString()==="0,1,1,1,1,1"){
+        player1Result = [2,3,2,0,0,0];
+      }
+      else {
+        player1Result = player1Numbers.map(function(a) {
+          if (a === 1){return a = 0}
+          else {return a};
         });
+        player1Numbers = player1Result.slice();
 
-      player1Numbers = player1Result.slice();
-
-      player1Result.sort(function(a, b) {
-          return b - a;
+        player1Result.sort(function(a, b) {
+            return b - a;
         });
+      }
     }
 
     function player2Results(){
@@ -266,15 +272,24 @@ window.onload = function () {
         player2Twos.length,
         player2Ones.length ]
 
-      player2Result = player2Numbers.map(function(a) {
-          if (a === 1){return a = 0}
-          else {return a};
-        });
-      player2Numbers = player2Result.slice();
-
-      player2Result.sort(function(a, b) {
-            return b - a;
+      if (player2Numbers.toString()==="1,1,1,1,1,0"){
+          player2Result = [2, 3, 3, 0, 0, 0];
+      }
+      else if (player2Numbers.toString()==="0,1,1,1,1,1"){
+          player2Result = [2, 3, 2, 0, 0, 0];
+      }
+      else {
+          player2Result = player2Numbers.map(function(a) {
+            if (a === 1){return a = 0}
+            else {return a};
           });
+
+          player2Numbers = player2Result.slice();
+
+          player2Result.sort(function(a, b) {
+                return b - a;
+          });
+      };
     }
 
     function gameOver(){
@@ -296,6 +311,10 @@ window.onload = function () {
       credits1 += game.currentBet;
       game.currentBet = 0;
       document.getElementById("js-credits1").innerHTML = credits1+" ";
+      console.log(player1Numbers);
+      console.log(player1Result);
+      console.log(player2Numbers);
+      console.log(player2Result);
     }
 
     function player2Wins(){
@@ -306,6 +325,10 @@ window.onload = function () {
       credits2 += game.currentBet;
       game.currentBet = 0;
       document.getElementById("js-credits2").innerHTML = credits2+" ";
+      console.log(player1Numbers);
+      console.log(player1Result);
+      console.log(player2Numbers);
+      console.log(player2Result);
     }
 
     function whoWins(){
@@ -354,31 +377,22 @@ window.onload = function () {
   }
 
     function player1Roll(){
-    if (game.currentPlayer === 1 && game.turn === 1) {
-      player1RollFirstTurn();
-      console.log("p1t1");
-      console.log(player1MiniDices);
-      console.log(player2MiniDices);
+      if (game.currentPlayer === 1 && game.turn === 1) {
+        player1RollFirstTurn();
+      }
+      else if (game.currentPlayer === 1 && game.turn === 2) {
+        player1RollSecondTurn();
+      }
     }
-    else if (game.currentPlayer === 1 && game.turn === 2) {
-      player1RollSecondTurn();
-      console.log("p1t2");
-      console.log(player1MiniDices);
-      console.log(player2MiniDices);}
-  }
 
     function player2Roll(){
-    if (game.currentPlayer === 2 && game.turn === 1) {
-      player2RollFirstTurn();
-      console.log("p2t1");
-      console.log(player1MiniDices);
-      console.log(player2MiniDices);}
-    else if (game.currentPlayer === 2 && game.turn ===2) {
-      player2RollSecondTurn();
-      console.log("p2t2");
-      console.log(player1MiniDices);
-      console.log(player2MiniDices);}
-  }
+      if (game.currentPlayer === 2 && game.turn === 1) {
+        player2RollFirstTurn();
+      }
+      else if (game.currentPlayer === 2 && game.turn ===2) {
+        player2RollSecondTurn();
+        }
+      }
 
     function clearDices(){
     for (i=1; i<6; i++){

@@ -28,10 +28,12 @@ window.onload = function () {
 
     function _nextButtonControls(){
       if (game.player1.credits <= 0){
+        console.log ("hola")
         game = new DicePoker();
         rollDice = new Dice(6);
       }
       else if (game.player2.credits <= 0){
+        console.log ("hola")
         game = new DicePoker();
         rollDice = new Dice(6);
       }

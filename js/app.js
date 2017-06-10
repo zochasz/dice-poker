@@ -47,11 +47,8 @@ window.onload = function () {
           clearDices();
           game.currentPlayer = 2;
           if (game.player1.credits <= 0 || game.player2.credits <=0 ){
-            game.round = 1;
-            game.player1.credits = 6;
-            document.getElementById("js-credits1").innerHTML = 6+" ";
-            game.player2.credits = 6;
-            document.getElementById("js-credits2").innerHTML = 6+" ";
+            game = new DicePoker();
+            rollDice = new Dice(6);
           }
         }
       }
@@ -74,11 +71,8 @@ window.onload = function () {
           game.turn=1;
           game.currentPlayer = 1;
           if (game.player1.credits <= 0 || game.player2.credits <=0 ){
-            game.round = 1;
-            game.player1.credits = 6;
-            document.getElementById("js-credits1").innerHTML = 6+" ";
-            game.player2.credits = 6;
-            document.getElementById("js-credits2").innerHTML = 6+" ";
+            game = new DicePoker();
+            rollDice = new Dice(6);
           }
         }
       }

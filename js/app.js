@@ -308,12 +308,14 @@ window.onload = function () {
       if (game.player1.credits <= 0){
         document.getElementById("winner").style.backgroundImage = "url(img/winner2.png)";
         document.getElementById("who_wins").innerHTML = "PLAYER 2 WINS THIS GAME";
+        ion.sound.play("bravo");
       }
        else if (game.player2.credits <= 0){
          document.getElementById("winner").style.backgroundImage = "url(img/winner1.png)";
          document.getElementById("who_wins").innerHTML = "PLAYER 1 WINS THIS GAME";
+         ion.sound.play("bravo");
       }
-      ion.sound.play("bravo");
+
     }
 
     function player1Wins(){
@@ -438,18 +440,18 @@ window.onload = function () {
     }
 
     function clearDices(){
-    for (i=1; i<6; i++){
-      document.getElementById("dices"+i).style.backgroundImage = "none";
-      document.getElementById("dices"+i).disabled = true;
+      for (i=1; i<6; i++){
+        document.getElementById("dices"+i).style.backgroundImage = "none";
+        document.getElementById("dices"+i).disabled = true;
+      }
     }
-  }
 
     function clearMiniDices(){
-    for (i=1; i<11; i++){
-      document.getElementById("mini-dice"+i).style.backgroundImage = "none";
-      document.getElementById("mini-dice"+i).disabled = true;
+      for (i=1; i<11; i++){
+        document.getElementById("mini-dice"+i).style.backgroundImage = "none";
+        document.getElementById("mini-dice"+i).disabled = true;
+      }
     }
-  }
 
     function loadSounds () {
       ion.sound({

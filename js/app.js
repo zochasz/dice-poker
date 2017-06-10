@@ -27,15 +27,14 @@ window.onload = function () {
     // var keyCode = 32;
 
     function _nextButtonControls(){
+      console.log(game.player1.credits);
+      console.log(game.player2.credits);
+
       if (game.player1.credits <= 0){
-        console.log ("hola")
-        game = new DicePoker();
-        rollDice = new Dice(6);
+        location.reload();
       }
       else if (game.player2.credits <= 0){
-        console.log ("hola")
-        game = new DicePoker();
-        rollDice = new Dice(6);
+        location.reload();
       }
       else if (game.round%2!==0){
         if(game.currentPlayer===1 && game.turn===1){

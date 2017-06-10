@@ -27,7 +27,11 @@ window.onload = function () {
     // var keyCode = 32;
 
     function _nextButtonControls(){
-      if (game.player1.credits <= 0 || game.player2.credits <=0 ){
+      if (game.player1.credits <= 0){
+        game = new DicePoker();
+        rollDice = new Dice(6);
+      }
+      else if (game.player2.credits <= 0){
         game = new DicePoker();
         rollDice = new Dice(6);
       }

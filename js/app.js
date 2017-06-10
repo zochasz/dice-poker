@@ -2,6 +2,7 @@ var game;
 var rollDice;
 
 window.onload = function () {
+  loadSounds();
   game = new DicePoker();
   rollDice = new Dice(6);
 }
@@ -67,6 +68,7 @@ window.onload = function () {
           game.currentPlayer = 1;
         }
       }
+      document.getElementById("next").disabled = true;
     }
 
     function rollActivate(num){
@@ -82,6 +84,7 @@ window.onload = function () {
     function standActivate(num){
       document.getElementById("stand"+num).disabled = false;
       document.getElementById("stand"+num).style.backgroundImage = "url(./img/stand_active.png)";
+      // $("#stand"+num).toggle('slow');
     }
 
     function standDisable(num){
@@ -176,6 +179,8 @@ window.onload = function () {
         document.getElementById("next").disabled = true;
         rollActivate(2);
         standActivate(2);
+        rollDisable(1);
+        standDisable(1);
         game.currentPlayer=2;
       }
       else if (game.round%2===0){
@@ -218,6 +223,8 @@ window.onload = function () {
       else if (game.round%2===0){
         rollActivate(1);
         standActivate(1);
+        rollDisable(2);
+        standDisable(2);
         document.getElementById("next").disabled = true;
         game.currentPlayer=1;
       }
@@ -306,6 +313,7 @@ window.onload = function () {
          document.getElementById("winner").style.backgroundImage = "url(img/winner1.png)";
          document.getElementById("who_wins").innerHTML = "PLAYER 1 WINS THIS GAME";
       }
+      ion.sound.play("bravo");
     }
 
     function player1Wins(){
@@ -316,6 +324,8 @@ window.onload = function () {
       credits1 += game.currentBet;
       game.currentBet = 0;
       document.getElementById("js-credits1").innerHTML = credits1+" ";
+      ion.sound.play("Ta-Da");
+
       console.log(player1Numbers);
       console.log(player1Result);
       console.log(player2Numbers);
@@ -330,6 +340,8 @@ window.onload = function () {
       credits2 += game.currentBet;
       game.currentBet = 0;
       document.getElementById("js-credits2").innerHTML = credits2+" ";
+      ion.sound.play("Ta-Da");
+
       console.log(player1Numbers);
       console.log(player1Result);
       console.log(player2Numbers);
@@ -339,16 +351,20 @@ window.onload = function () {
     function whoWins(){
       if (player1Result > player2Result){
         player1Wins();
+        gameOver();
       }
       else if (player1Result < player2Result){
         player2Wins();
+        gameOver();
       }
       else {
         if (player1Numbers > player2Numbers){
           player1Wins();
+          gameOver();
         }
         else if (player1Numbers < player2Numbers){
           player2Wins();
+          gameOver();
         }
         else {console.log("Tie!")}
       }
@@ -384,6 +400,7 @@ window.onload = function () {
   }
 
     function player1Roll(){
+      ion.sound.play("roll-dice");
       if (game.currentPlayer === 1 && game.turn === 1) {
         player1RollFirstTurn();
       }
@@ -393,6 +410,7 @@ window.onload = function () {
     }
 
     function player2Roll(){
+      ion.sound.play("roll-dice");
       if (game.currentPlayer === 2 && game.turn === 1) {
         player2RollFirstTurn();
       }
@@ -432,3 +450,13 @@ window.onload = function () {
       document.getElementById("mini-dice"+i).disabled = true;
     }
   }
+
+    function loadSounds () {
+      ion.sound({
+        sounds: [{name: "dun_dun"}, {name: "roll-dice"}, {name: "Ta-Da"},{name: "bravo"}],
+
+        path: "../lib/ion.sound-3.0.7/sound/",
+        preload: true,
+        volume: 1.0
+      });
+    }

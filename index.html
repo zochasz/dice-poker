@@ -10,7 +10,19 @@
 
 <body>
   <h1>POKER DICE</h1>
-  <!-- <h2> ROUND <span id="round">1</span></h2> -->
+
+  <div id="info">
+    <h2> ? </h2>
+    <div id="legend">
+      <h2> LEGEND </h2>
+      <img src="img/glass_active.png"> <p>  - ACTIVATED "ROLL" BUTTON </p>
+      <img src="img/stand_active.png"><p>  - ACTIVATED "STAND" BUTTON </p>
+      <img src="img/glass_disabled.png"><p>  - DISABLED "ROLL" BUTTON </p>
+      <img src="img/stand_disabled.png"><p>  - DISABLED "STAND" BUTTON </p>
+      <h4> NEXT </h4> <p>  - CHANGES PLAYERS, START NEW ROUND </p>
+      <img src="img/coin_active.png"> <p> - CREDITS </p>
+    </div>
+  </div>
 
   <div id = "player1">
     <h2> Player 1 </h2>
@@ -68,6 +80,7 @@
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
+    <script type="text/javascript" src="lib/ion.sound-3.0.7/ion.sound.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="js/DicePoker.js"></script>
     <script src="js/Dice.js"></script>

@@ -455,7 +455,7 @@ window.onload = function () {
       ion.sound({
         sounds: [{name: "dun_dun"}, {name: "roll-dice"}, {name: "Ta-Da"},{name: "bravo"}],
 
-        path: "../lib/ion.sound-3.0.7/sound/",
+        path: "lib/ion.sound-3.0.7/sound/",
         preload: true,
         volume: 1.0
       });

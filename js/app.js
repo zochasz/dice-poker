@@ -27,7 +27,11 @@ window.onload = function () {
     // var keyCode = 32;
 
     function _nextButtonControls(){
-      if (game.round%2!==0){
+      if (game.player1.credits <= 0 || game.player2.credits <=0 ){
+        game = new DicePoker();
+        rollDice = new Dice(6);
+      }
+      else if (game.round%2!==0){
         if(game.currentPlayer===1 && game.turn===1){
           game.currentPlayer = 2;
           clearDices();
@@ -46,10 +50,6 @@ window.onload = function () {
           game.turn=1
           clearDices();
           game.currentPlayer = 2;
-          if (game.player1.credits <= 0 || game.player2.credits <=0 ){
-            game = new DicePoker();
-            rollDice = new Dice(6);
-          }
         }
       }
       else if (game.round%2===0){
@@ -70,10 +70,6 @@ window.onload = function () {
           game.round+=1;
           game.turn=1;
           game.currentPlayer = 1;
-          if (game.player1.credits <= 0 || game.player2.credits <=0 ){
-            game = new DicePoker();
-            rollDice = new Dice(6);
-          }
         }
       }
       document.getElementById("next").disabled = true;
